@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_kendro_property_tree" model="ir.ui.view">
+        <field name="name">kendro.property.tree</field>
+        <field name="model">kendro.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="price"/>
+                <field name="currency_id"/>
+                <field name="bedrooms"/>
+                <field name="bathrooms"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_kendro_property_form" model="ir.ui.view">
+        <field name="name">kendro.property.form</field>
+        <field name="model">kendro.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Basic Info">
+                            <field name="name"/>
+                            <field name="active"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group string="Pricing">
+                            <field name="price"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Location">
+                            <field name="location"/>
+                        </group>
+                        <group string="Capacity">
+                            <field name="bedrooms"/>
+                            <field name="bathrooms"/>
+                            <field name="max_guests"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Images" name="images">
+                            <field name="image_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_kendro_property_search" model="ir.ui.view">
+        <field name="name">kendro.property.search</field>
+        <field name="model">kendro.property</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="location"/>
+                <filter string="Active" name="active_filter" domain="[('active', '=', True)]"/>
+                <filter string="Inactive" name="inactive_filter" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_kendro_property" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">kendro.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active_filter': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first property
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_kendro_property"
+              name="Properties"
+              action="action_kendro_property"
+              parent="website.menu_website"
+              sequence="10"/>
+</odoo>

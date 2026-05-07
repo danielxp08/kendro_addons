@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Images as ir.attachment with external URLs (Unsplash) -->
+
+    <!-- Property 1: Casa del Lago -->
+    <record id="demo_property_1_image_1" model="ir.attachment">
+        <field name="name">Casa del Lago - Image 1</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+    <record id="demo_property_1_image_2" model="ir.attachment">
+        <field name="name">Casa del Lago - Image 2</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+
+    <!-- Property 2: Departamento Centro -->
+    <record id="demo_property_2_image_1" model="ir.attachment">
+        <field name="name">Departamento Centro - Image 1</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+    <record id="demo_property_2_image_2" model="ir.attachment">
+        <field name="name">Departamento Centro - Image 2</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+
+    <!-- Property 3: Cabaña Montaña -->
+    <record id="demo_property_3_image_1" model="ir.attachment">
+        <field name="name">Cabaña Montaña - Image 1</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1449158743715-5a9ba3b9f7dc?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+    <record id="demo_property_3_image_2" model="ir.attachment">
+        <field name="name">Cabaña Montaña - Image 2</field>
+        <field name="type_url">url</field>
+        <field name="url">https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800</field>
+        <field name="external">True</field>
+        <field name="mimetype">image/jpeg</field>
+    </record>
+
+    <!-- Properties Demo Data -->
+
+    <record id="demo_property_1" model="kendro.property">
+        <field name="name">Casa del Lago</field>
+        <field name="description">Beautiful lake house with stunning views. Perfect for families looking for a peaceful retreat. Features a spacious living area, fully equipped kitchen, and a private dock.</field>
+        <field name="active">True</field>
+        <field name="sequence">1</field>
+        <field name="price">150.00</field>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="location">Lake Tahoe, California</field>
+        <field name="bedrooms">3</field>
+        <field name="bathrooms">2</field>
+        <field name="max_guests">6</field>
+        <field name="image_ids" eval="[(6, 0, [ref('kendro_hostfully_website.demo_property_1_image_1'), ref('kendro_hostfully_website.demo_property_1_image_2')])]"/>
+    </record>
+
+    <record id="demo_property_2" model="kendro.property">
+        <field name="name">Departamento Centro</field>
+        <field name="description">Modern downtown apartment with city views. Walking distance to restaurants, shops, and public transport. Perfect for business travelers or couples.</field>
+        <field name="active">True</field>
+        <field name="sequence">2</field>
+        <field name="price">95.00</field>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="location">Downtown Miami, Florida</field>
+        <field name="bedrooms">1</field>
+        <field name="bathrooms">1</field>
+        <field name="max_guests">2</field>
+        <field name="image_ids" eval="[(6, 0, [ref('kendro_hostfully_website.demo_property_2_image_1'), ref('kendro_hostfully_website.demo_property_2_image_2')])]"/>
+    </record>
+
+    <record id="demo_property_3" model="kendro.property">
+        <field name="name">Cabaña Montaña</field>
+        <field name="description">Cozy mountain cabin with fireplace and hot tub. Surrounded by hiking trails and nature. Perfect for adventure seekers and romantic getaways.</field>
+        <field name="active">True</field>
+        <field name="sequence">3</field>
+        <field name="price">180.00</field>
+        <field name="currency_id" ref="base.USD"/>
+        <field name="location">Aspen, Colorado</field>
+        <field name="bedrooms">2</field>
+        <field name="bathrooms">2</field>
+        <field name="max_guests">4</field>
+        <field name="image_ids" eval="[(6, 0, [ref('kendro_hostfully_website.demo_property_3_image_1'), ref('kendro_hostfully_website.demo_property_3_image_2')])]"/>
+    </record>
+
+</odoo>
